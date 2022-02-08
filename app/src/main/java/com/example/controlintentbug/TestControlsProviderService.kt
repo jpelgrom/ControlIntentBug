@@ -21,7 +21,7 @@ class TestControlsProviderService : ControlsProviderService() {
                         PendingIntent.getActivity(
                             baseContext,
                             1,
-                            Intent(baseContext, MainActivity::class.java),
+                            Intent(baseContext, MainActivity::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) },
                             intentFlags
                         )
                     )
@@ -44,7 +44,7 @@ class TestControlsProviderService : ControlsProviderService() {
                                 PendingIntent.getActivity(
                                     baseContext,
                                     1,
-                                    Intent(baseContext, MainActivity::class.java),
+                                    Intent(baseContext, MainActivity::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) },
                                     intentFlags
                                 )
                             )
@@ -56,7 +56,7 @@ class TestControlsProviderService : ControlsProviderService() {
                 }
 
                 override fun cancel() {
-                    TODO("Not yet implemented")
+                    // Not needed
                 }
             })
         }
